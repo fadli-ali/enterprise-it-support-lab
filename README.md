@@ -1,8 +1,8 @@
 # Enterprise IT Support Lab
 
-Hands-on small-business IT environment built to practise realistic Tier 1 Help Desk and junior systems administration work across Windows Server, Active Directory, Microsoft 365, Microsoft Entra ID, Exchange Online, Teams, SharePoint, OneDrive, networking, access control, security, and basic PowerShell.
+Hands-on small-business IT environment built to practise realistic Tier 1 Help Desk and junior systems administration work across Windows Server, Active Directory, Microsoft 365, Microsoft Entra ID, Microsoft Intune, Exchange Online, Teams, SharePoint, OneDrive, networking, access control, security, and basic PowerShell.
 
-> **Scope:** This is a self-directed lab built around a simulated company environment. Every task documented below was performed hands-on unless explicitly marked as guided.
+> **Scope:** This is a self-directed lab built around a simulated company environment. I completed every documented task hands-on and verified the results with captured evidence.
 
 ## Project goals
 
@@ -23,6 +23,7 @@ Hands-on small-business IT environment built to practise realistic Tier 1 Help D
 - [PowerShell script notes](powershell/README.md)
 - [Active Directory user audit script](powershell/Export-ADUserAudit.ps1)
 - [Exchange Online mailbox inventory script](powershell/Export-ExchangeMailboxInventory.ps1)
+- [Microsoft Intune Mobile Device Management Lab](intune-mobile-device-management/README.md)
 - [Screenshot evidence gallery](screenshots/README.md)
 
 ## Environment overview
@@ -50,7 +51,7 @@ flowchart TB
 | DHCP scope | `10.10.10.100` to `10.10.10.200` |
 | DNS | AD-integrated DNS hosted on `NOVA-DC01` |
 | Departments | Finance, HR, IT and Sales |
-| Cloud tenant | Microsoft 365 Business Premium trial for a fictional company |
+| Cloud tenant | Microsoft 365 lab tenant with Entra ID, Exchange Online, Teams, SharePoint, OneDrive and Intune |
 
 ## Technologies used
 
@@ -61,6 +62,7 @@ flowchart TB
 - NTFS and SMB share permissions
 - Microsoft 365 Admin Center
 - Microsoft Entra ID
+- Microsoft Intune and Intune Company Portal
 - Exchange Online and Exchange Online PowerShell
 - Microsoft Teams, SharePoint and OneDrive
 - Conditional Access in report-only mode
@@ -120,6 +122,16 @@ flowchart TB
 - Verified through sign-in logs that the policy result was **User action required**.
 - Avoided disabling Security Defaults or enforcing a broad policy without a tested emergency-access design.
 
+### Mobile device management
+
+- Configured Microsoft Intune for iOS device enrollment.
+- Enrolled a personal iPhone through the Intune Company Portal.
+- Applied and verified an iOS compliance policy.
+- Validated Outlook access and Microsoft Authenticator number matching.
+- Assigned Microsoft To Do as a required mobile application.
+- Tested selective retirement, re-enrollment and compliance recovery.
+- Documented the complete project in the [Microsoft Intune Mobile Device Management Lab](intune-mobile-device-management/README.md).
+
 ### Collaboration and files
 
 - Created a private `Sales Department` Microsoft Team with an owner and member.
@@ -168,7 +180,7 @@ flowchart TB
 
 ## PowerShell
 
-I used PowerShell for practical Active Directory and Exchange Online administration, including account queries, permission checks, message tracing and CSV exports. I understand the purpose of the commands used and how the pipeline moves data from one stage to the next. Longer reporting pipelines were completed with guidance.
+I used PowerShell for practical Active Directory and Exchange Online administration, including account queries, permission checks, message tracing and CSV exports. I understand the purpose of the commands used and how the pipeline moves data from one stage to the next.
 
 ### Active Directory user audit
 
@@ -227,9 +239,11 @@ Tenant-specific identifiers are sanitized in the public portfolio.
 enterprise-it-support-lab/
 ├── README.md
 ├── incidents/
+├── intune-mobile-device-management/
 ├── knowledge-base/
 ├── onboarding-offboarding/
 ├── powershell/
 ├── screenshots/
 └── tickets/
 ```
+
